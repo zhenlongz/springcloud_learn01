@@ -8,5 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient("order-service")
 public interface OrderFeign {
     @GetMapping("/order/findOrderInfoByUserId/{userId}")
+    /**
+     *  feign传入userId
+     */
     String findOrderInfoByUserId(@PathVariable("userId") String userId);
 }
