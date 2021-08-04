@@ -1,0 +1,18 @@
+#spring:
+#  application:
+#    name: order-service
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: 192.168.31.81 # nacos服务地址
+#        namespace: b8fcabcc-beb2-4545-960a-7931a1d8b147
+#      config:
+#        server-addr: 192.168.31.81 # nacos配置中心地址
+#        namespace: b8fcabcc-beb2-4545-960a-7931a1d8b147
+#        file-extension: yml
+#    sentinel:
+#      transport:
+#        dashboard: 192.168.31.81:8858 #sentinel控制台地址
+
+#  profiles:
+#    active: dev   # 激活Pro配置文件

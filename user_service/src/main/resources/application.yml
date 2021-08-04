@@ -1,0 +1,46 @@
+server:
+  port: ${port}
+spring:
+  application:
+    name: user-service
+#  datasource:
+#    url: jdbc:mysql://192.168.31.81:3306/spring_cloud?serverTimezone=UTC
+#    username: root
+#    password: root
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: 192.168.31.81:8848 #nacos地址
+#        namespace: b8fcabcc-beb2-4545-960a-7931a1d8b147
+#
+#全局健康检查
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+#日志
+logging:
+  level:
+    org.springframework.web: debug
+
+eureka:
+  instance:
+    hostname: localhost
+    ip-address: 127.0.0.1 # ip地址
+    prefer-ip-address: true # 更倾向于使用ip，而不是host名
+    instance-id: ${eureka.instance.ip-address}:${server.port} # 自定义实例的id
+
+  client:
+    service-url:
+      defaultZone: http://localhost:6011/eureka # eureka服务端地址
+# 设置Ribbon的超时时间
+#ribbon:
+#  ConnectTimeout: 1000 # 连接超时时间 默认1s  默认单位毫秒
+#  ReadTimeout: 1000 # 逻辑处理的超时时间 默认1s 默认单位毫秒
+#  OkToRetryOnAllOperations: false # 对所有操作请求都进行重试，默认只有get请求会重试
+#  MaxAutoRetriesNextServer: 1 # 切换实例的重试次数
+#  MaxAutoRetries: 1  # 对当前实例的重试次数
+#mvc:
+#  static-path-pattern: /static/**

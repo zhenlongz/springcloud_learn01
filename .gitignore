@@ -1,0 +1,5 @@
+# Project exclude paths
+/EurekaServer/target/
+/order_service/target/
+/service_api/target/
+/user_service/target/
