@@ -24,6 +24,8 @@ management:
 logging:
   level:
     org.springframework.web: debug
+    com.**.api.service.IFeignService: DEBUG
+
 
 eureka:
   instance:
@@ -44,3 +46,8 @@ eureka:
 #  MaxAutoRetries: 1  # 对当前实例的重试次数
 #mvc:
 #  static-path-pattern: /static/**
+feign:
+  client:
+    config:
+        user-service:
+            loggerLevel: full

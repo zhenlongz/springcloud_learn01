@@ -1,6 +1,11 @@
 package org.example.order.controller;
 
+import com.alibaba.fastjson.JSON;
+import io.micrometer.core.instrument.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.example.feign.pojo.BaseUser;
+import org.example.order.pojo.LoginResp;
+import org.example.order.pojo.User;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,12 +22,13 @@ public class OrderController {
     private Integer port;
 
     /**
-     *     根据用户id查询订单列表
+     * 根据用户id查询订单列表
      */
-    @GetMapping("/findOrderInfoByUserId/{userId}")
-    public String findOrderInfoByUserId(@PathVariable("userId") String userId) {
+    @PostMapping("/findOrderInfoByUserId/{scene}")
+    public LoginResp findOrderInfoByUserId(@PathVariable("scene") String scene, @RequestBody User user) {
+
         log.info("order is call...");
-        return userId;
+        return LoginResp.builder().scene(scene).userResp(new LoginResp.UserResp(user.getUserID(), user.getPassword())).build();
     }
 
 
