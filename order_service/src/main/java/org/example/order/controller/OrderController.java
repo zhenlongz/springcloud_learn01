@@ -26,9 +26,7 @@ public class OrderController {
      */
     @PostMapping("/findOrderInfoByUserId/{scene}")
     public LoginResp findOrderInfoByUserId(@PathVariable("scene") String scene, @RequestBody User user) {
-
-        log.info("order is call...");
-        return LoginResp.builder().scene(scene).userResp(new LoginResp.UserResp(user.getUserID(), user.getPassword())).build();
+        throw new RuntimeException();
     }
 
 

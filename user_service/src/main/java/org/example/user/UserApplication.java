@@ -8,7 +8,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages =  {"org.example.user","org.example.feign"})
 @EnableDiscoveryClient
 @EnableFeignClients //开启feign调用
 public class UserApplication {
